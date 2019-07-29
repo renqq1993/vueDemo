@@ -1,10 +1,14 @@
 <template>
   <div class="navbar">
-      
+     <humburger></humburger>
   </div>
 </template>
 <script>
+import humburger from '@/components/hamnurger';
 export default{
+  components:{
+    humburger
+  }
 }
 </script>
 <style lang="less">

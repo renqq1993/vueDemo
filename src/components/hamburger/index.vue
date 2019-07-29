@@ -1,6 +1,6 @@
 <template>
     <div style="padding: 0 15px" @click="toggleClick">
-        <svg-icon icon-class="fold" />
+       <svg-icon icon-class="fold" class="humberger" :class="{'is-active':isActive}"/>
     </div>
 </template>
 
@@ -9,7 +9,7 @@ export default {
     name:"Hamburger",
     props:{
         isActive: {
-            typd:Boolean,
+            type:Boolean,
             default:false
         }
     },
@@ -20,4 +20,16 @@ export default {
     }
 }
 </script>
+
+<style>
+    .humberger{
+        height:40px;
+        width:40px;
+        display: inline-block;
+    }
+    .humberger.is-active{
+        transform: rotate(180)
+    }
+</style>
+
 
