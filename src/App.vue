@@ -1,7 +1,7 @@
 <template>
     <el-container>
       <el-header>
-        <header></header>
+        <!-- <header></header> -->
       </el-header>
       <el-container>
           <el-aside width="200px">aside</el-aside>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Header from '@/page/layout/Header'
+// import Header from '@/page/layout/Header'
 export default {
   name: 'App'
 }

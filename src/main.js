@@ -9,7 +9,7 @@ import axios from 'axios'
 import './icons'
 
 Vue.use(ElementUI)
-Vue.use(axios)
+Vue.prototype.$ajax = axios
 
 Vue.config.productionTip = false
 
