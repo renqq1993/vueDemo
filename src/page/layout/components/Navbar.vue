@@ -1,7 +1,6 @@
 <template>
   <div class="navbar">
-     <humburger></humburger>
-     header
+     <humburger class="hamburger-container"></humburger>
   </div>
 </template>
 <script>

@@ -5,10 +5,13 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import vuex from 'vuex'
 import axios from 'axios'
+import store from "./store"
 import './icons'
 
 Vue.use(ElementUI)
+Vue.use(vuex)
 Vue.prototype.$ajax = axios
 
 Vue.config.productionTip = false
@@ -17,6 +20,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

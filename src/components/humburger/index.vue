@@ -1,35 +1,46 @@
 <template>
-    <div style="padding: 0 15px" @click="toggleClick">
+    <div style="padding: 0 15px"  @click="toggleClick">
        <svg-icon icon-class="fold" class="humberger" :class="{'is-active':isActive}"/>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
     name:"Hamburger",
-    props:{
-        isActive: {
-            type:Boolean,
-            default:false
-        }
+    data(){
+        return {
+            isActive:false
+        };
     },
+     computed: {
+    ...mapGetters([
+      'sidebar',
+    ])
+  },
     methods:{
         toggleClick(){
-            this.emit("toggleClick");
+            console.log("click");
+            this.$store.dispatch('app/toggleSideBar')
         }
     }
 }
 </script>
 
-<style>
-    .humberger{
-        height:40px;
-        width:40px;
-        display: inline-block;
-    }
-    .humberger.is-active{
-        transform: rotate(180)
-    }
+<style scoped>
+.humberger {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.humberger.is-active {
+   transform:rotate(90deg);
+   -ms-transform:rotate(90deg); /* IE 9 */
+   -webkit-transform:rotate(90deg); /* Safari and Chrome */
+}
 </style>
 
 
