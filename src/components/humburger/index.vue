@@ -1,6 +1,6 @@
 <template>
     <div style="padding: 0 15px"  @click="toggleClick">
-       <svg-icon icon-class="fold" class="humberger" :class="{'is-active':isActive}"/>
+       <svg-icon icon-class="fold" class="humberger" :class="{'is-active':sidebar.opened}"/>
     </div>
 </template>
 
@@ -20,7 +20,6 @@ export default {
   },
     methods:{
         toggleClick(){
-            console.log("click");
             this.$store.dispatch('app/toggleSideBar')
         }
     }

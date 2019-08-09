@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="SidebarClass">
         <div class="sideBar">
              <sidebar/>
         </div>
@@ -16,8 +16,22 @@
 import Navbar from './components/Navbar'
 import AppMain from './components/AppMain'
 import Sidebar from './components/Sidebar'
+import { mapGetters } from 'vuex'
 export default {
     name:"Layout",
+    computed:{
+        ...mapGetters([
+            'sidebar',
+        ]),
+        SidebarClass(){
+            if(this.sidebar.opened){
+                return "hiddenSidebar";
+                
+            }else{
+                return "collapseSidebar";
+            }
+        }
+    },
     components:{
         Navbar,
         Sidebar,
@@ -29,15 +43,19 @@ export default {
 <style  lang="scss" scoped>
     @import "~@/styles/variables.scss";
     .header{
+        transition:width 0.5s;
+        transition-delay:0.5s;
         position: relative;
         height:50px;
         overflow:hidden;
         box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
         background-color: #fff;
         width: calc(100% - #{$sideBarWidth});
+        
     }
     .sideBar{
-        transition: width 0.28s;
+        transition: width 0.5s;
+        transition-delay:0.5s;
         width: 210px !important;
         background-color: #304156;
         height: 100%;
@@ -50,11 +68,32 @@ export default {
         overflow: hidden;
     }
     .content-container{
+        transition:width 0.5s;
+        transition-delay:0.5s;
         position: absolute;
-        left:210px;
+        left:#{$sideBarWidth};
         height:100%;
         width: calc(100% - #{$sideBarWidth});
         margin-top: 0%;
+        
+    }
+    .hiddenSidebar{
+        .sideBar{
+            transition: width 0.1s;
+            // transition-delay:0.5s;
+            width:#{$hiddenSideBarWidth} !important;
+        }
+         .header{
+             transition: width 0.1s;
+            //  transition-delay:0.5s;
+            width: calc(100% - #{$hiddenSideBarWidth}) !important;
+        }
+        .content-container{
+            transition: width 0.1s;
+            // transition-delay:0.5s;
+            left:#{$hiddenSideBarWidth};
+            width: calc(100% - #{$hiddenSideBarWidth}) !important;
+        }
     }
 </style>
 
