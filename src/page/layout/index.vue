@@ -44,7 +44,7 @@ export default {
     @import "~@/styles/variables.scss";
     .header{
         transition:width 0.5s;
-        transition-delay:0.5s;
+        transition-delay:0.3s;
         position: relative;
         height:50px;
         overflow:hidden;
@@ -55,7 +55,7 @@ export default {
     }
     .sideBar{
         transition: width 0.5s;
-        transition-delay:0.5s;
+        transition-delay:0.3s;
         width: 210px !important;
         background-color: #304156;
         height: 100%;
@@ -68,10 +68,10 @@ export default {
         overflow: hidden;
     }
     .content-container{
-        transition:width 0.5s;
-        transition-delay:0.5s;
+        transition:width 0.5s ease left 0.5s ease;
+        transition-delay:0.3s;
         position: absolute;
-        left:#{$sideBarWidth};
+        left:$sideBarWidth;
         height:100%;
         width: calc(100% - #{$sideBarWidth});
         margin-top: 0%;
@@ -80,17 +80,14 @@ export default {
     .hiddenSidebar{
         .sideBar{
             transition: width 0.1s;
-            // transition-delay:0.5s;
             width:#{$hiddenSideBarWidth} !important;
         }
          .header{
              transition: width 0.1s;
-            //  transition-delay:0.5s;
             width: calc(100% - #{$hiddenSideBarWidth}) !important;
         }
         .content-container{
             transition: width 0.1s;
-            // transition-delay:0.5s;
             left:#{$hiddenSideBarWidth};
             width: calc(100% - #{$hiddenSideBarWidth}) !important;
         }
